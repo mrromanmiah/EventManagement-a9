@@ -5,9 +5,9 @@ const Card = ({ card }) => {
     const { id, image, service, price, pricing, description } = card || {}
     return (
         <div>
-            <div className="bg-base-100 shadow-xl rounded-xl">
+            <div className="bg-base-100 shadow-xl rounded-3xl">
                 <figure className="px-10 pt-10">
-                    <img src={image} alt="Card" className="rounded-xl" />
+                    <img src={image} alt="Card" className="rounded-3xl" />
                 </figure>
                 <div className="px-10 pb-10 pt-6 space-y-4 items-center text-center">
                     <h2 className="text-lg font-bold">{service}</h2>
