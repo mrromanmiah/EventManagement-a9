@@ -4,9 +4,12 @@ import Home from "../Pages/Home/Home";
 import About from "../Pages/About/About";
 import Contact from "../Pages/Contact/Contact";
 import Details from "../Pages/Details/Details";
+import Login from "../Components/Login/Login";
+import Register from "../Components/Register/Register";
 
 
-const router = createBrowserRouter([
+
+const routes = createBrowserRouter([
 
     {
         path: '/',
@@ -29,9 +32,17 @@ const router = createBrowserRouter([
                 path: "/cards/:id",
                 element: <Details></Details>,
                 loader: () => fetch('/card.json')
+            },
+            {
+                path: '/login',
+                element: <Login></Login>
+            },
+            {
+                path: '/register',
+                element: <Register></Register>
             }
         ]
     }
 ])
 
-export default router;
+export default routes;
