@@ -3,6 +3,7 @@ import Root from "../Layout/Root";
 import Home from "../Pages/Home/Home";
 import About from "../Pages/About/About";
 import Contact from "../Pages/Contact/Contact";
+import Details from "../Pages/Details/Details";
 
 
 const router = createBrowserRouter([
@@ -13,15 +14,23 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home></Home>
+                element: <Home></Home>,
+                loader: () => fetch('/card.json')
             },
             {
                 path: '/about',
-                element: <About></About>
+                element: <About></About>,
+                loader: () => fetch('/card.json')
             },
             {
                 path: '/contact',
-                element: <Contact></Contact>
+                element: <Contact></Contact>,
+                loader: () => fetch('/card.json')
+            },
+            {
+                path: "/cards/:id",
+                element: <Details></Details>,
+                loader: () => fetch('/card.json')
             }
         ]
     }

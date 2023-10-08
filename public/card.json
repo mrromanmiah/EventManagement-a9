@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "image": "https://i.ibb.co/Dz8HsGM/Event-Planning-and-Coordination.jpg",
+        "service": "Event Planning and Coordination",
+        "price": 10000,
+        "pricing": "For Full Event",
+        "description": "Our seasoned event planners are the architects of unforgettable experiences. With meticulous attention to detail, we take the reins from conceptualization to execution, ensuring every facet of your corporate event is a masterpiece. From crafting the initial vision to orchestrating the final moments, our experts seamlessly weave together the elements that make your event uniquely yours. We understand that the success of your event lies in the intricate details, and our team is dedicated to surpassing expectations at every turn. Immerse yourself in the assurance that comes with a team committed to creating a seamless and unforgettable experience for all attendees."
+    },
+    {
+        "id": 2,
+        "image": "https://i.ibb.co/YhZ0WxG/Venue-Selection-and-Management.jpg",
+        "service": "Venue Selection and Management",
+        "price": 5000,
+        "pricing": "For Full Event",
+        "description": "Let us transform the daunting task of finding the perfect venue into a delightful experience. Our seasoned team not only scouts but curates an ideal location for your event, managing all logistical details to guarantee a comfortable and accommodating environment. We understand that the venue sets the stage for the entire event, and our commitment is to find a space that not only meets but exceeds your expectations. With our expertise in negotiation and logistics, we ensure that the venue becomes an integral part of the success of your corporate gathering, allowing you to focus on the content and connections that matter."
+    },
+    {
+        "id": 3,
+        "image": "https://i.ibb.co/6r3CcDD/Customized-Catering-Services.jpg",
+        "service": "Customized Catering Services",
+        "price": 50,
+        "pricing": "For Per Person",
+        "description": "Elevate your event with a culinary experience tailored to perfection. Our bespoke catering services go beyond the ordinary, offering a journey of flavors designed to align seamlessly with the theme and atmosphere of your corporate gathering. From menu design to on-site culinary expertise, our team ensures that every bite is a delight, leaving a lasting impression on your guests. We understand that food is not just nourishment; it's an integral part of the overall experience. Trust us to bring creativity, expertise, and a touch of gastronomic magic to your event, making it an affair to remember."
+    },
+    {
+        "id": 4,
+        "image": "https://i.ibb.co/r3pxLzZ/Audio-Visual-Production.jpg",
+        "service": "Audio-Visual Production",
+        "price": 7500,
+        "pricing": "For Full Event",
+        "description": "Immerse your guests in a world of sensory delight with our top-notch audio-visual setups. Our experts are not just technicians; they are storytellers, creating a visually stunning and engaging atmosphere for your event. From state-of-the-art sound systems that resonate with clarity to captivating lighting that transforms spaces, we infuse a cinematic quality into every moment. Multimedia presentations come to life under our care, ensuring that your message is delivered with impact. Elevate your event from the ordinary to the extraordinary with the artistry of our audio-visual production team."
+    },
+    {
+        "id": 5,
+        "image": "https://i.ibb.co/8cpYGwH/Guest-Registration-and-Management.jpg",
+        "service": "Registration and Management",
+        "price": 2500,
+        "pricing": "For Full Event",
+        "description": "Welcome your attendees with efficiency and warmth through our streamlined guest registration services. We understand that the first impression sets the tone for the entire event, and our user-friendly solutions are designed to make the check-in process smooth and professional. From managing RSVPs to creating personalized badges, our system is not just a tool; it's a concierge service that ensures every participant feels valued. Say goodbye to long queues and hello to a seamless entrance experience that leaves a positive and lasting impression on your guests."
+    },
+    {
+        "id": 6,
+        "image": "https://i.ibb.co/CQNn5qX/Post-Event-Analysis-and-Reporting.jpg",
+        "service": "Post-Event Analysis and Reporting",
+        "price": 2000,
+        "pricing": "For Full Event",
+        "description": "The end of your event is just the beginning of our commitment to your success. Gain valuable insights into the impact of your corporate event with our post-event analysis and reporting. We go beyond the surface to provide comprehensive data on attendee engagement, feedback, and key performance metrics. Our reports are not just numbers; they are strategic tools that empower you to make informed decisions for future events. Understand what worked, what resonated with your audience, and how to refine your approach for even greater success. With our post-event analysis, the success of today becomes the foundation for an even more impactful tomorrow."
+    }
+]
