@@ -5,8 +5,8 @@ const Clients = () => {
     return (
         <div>
             <div className="mx-auto text-center space-y-4 mt-10">
-                <h1 className="text-3xl font-extrabold">Our <span className="text-[#d82148]">Clients</span></h1>
-                <p className="w-1/2 text-gray-400 flex justify-center mx-auto">Thriving partnerships with diverse clients, shaping memorable and impactful events.</p>
+                <h1 className="text-3xl font-extrabold" data-aos="fade-up">Our <span className="text-[#d82148]">Clients</span></h1>
+                <p className="w-1/2 text-gray-400 flex justify-center mx-auto" data-aos="zoom-in">Thriving partnerships with diverse clients, shaping memorable and impactful events.</p>
             </div>
             <Marquee>
                 <div className="w-32 flex py-16 gap-10 mb-10">

@@ -7,13 +7,9 @@ import Footer from "../Shared/Footer/Footer";
 const Root = () => {
     return (
         <div className="font-inter">
-            <div className="sticky top-0 bg-white z-50">
-                <Navbar></Navbar>
-            </div>
-
+            <Navbar></Navbar>
             <Outlet></Outlet>
             <Footer></Footer>
-
         </div>
     );
 };
