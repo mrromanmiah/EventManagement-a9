@@ -49,8 +49,9 @@ const Navbar = () => {
                             <img src={'https://i.ibb.co/nMsBCBV/logo.png'} />
                         </div>
                     </div>
-                    <div>
+                    <div className="flex gap-2">
                         <button className="bg-[#01c897] text-white font-bold rounded-full px-6 py-2 hover:bg-[#31a588] ">Login</button>
+                        <button className="bg-[#01c897] text-white font-bold rounded-full px-6 py-2 hover:bg-[#31a588] ">Register</button>
                     </div>
                 </div>
 
