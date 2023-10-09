@@ -5,7 +5,7 @@ const Footer = () => {
         <div>
 
             <footer className="footer footer-center p-10 bg-[url('https://i.ibb.co/HrFnXLs/12686015-SL-0210121-40570-15.jpg')] bg-no-repeat bg-cover bg-center text-base-content rounded">
-                <img className="w-14" src="/logo.png" alt="" />
+                <img className="w-14" src={'https://i.ibb.co/MMr00zg/logo.png'} alt="" />
                 <h2 className="text-3xl font-extrabold text-[#ffb531]">Summit Sculpt</h2>
                 <nav className="grid grid-flow-col gap-4 text-white">
                     <a className="link link-hover">About</a>

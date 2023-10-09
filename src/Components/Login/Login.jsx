@@ -1,50 +1,97 @@
-import { GoogleAuthProvider, getAuth, signInWithPopup, signOut } from "firebase/auth";
-import app from "../../Firebase/firebase.config";
-import { useState } from "react-router-dom";
+
+import { useContext, useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+
+import { AuthContext } from "../../Providers/AuthProvider";
 
 
 
 const Login = () => {
-    const [user, setUser] = useState(null);
-    const auth = getAuth(app);
-    const provider = new GoogleAuthProvider();
-    const handleGoogleSignIn = () => {
-        signInWithPopup(auth, provider)
-            .then(result => {
-                const logedInUser = result.user;
-                console.log(user);
-                setUser(logedInUser);
-            })
-            .catch(error => {
-                console.log('error', error.message);
-            })
-    }
-    const handleSignOut = () => {
-        signOut(auth)
+    const { signInUser, signInWithGoogle } = useContext(AuthContext);
+    const location = useLocation()
+    const navigate = useNavigate();
+    const [registerError, setRegisterError] = useState('');
+    const [success, setSuccess] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
+    const handleLogin = e => {
+        e.preventDefault();
+        const form = new FormData(e.currentTarget);
+        const email = form.get('email');
+        const password = form.get('password');
+        setRegisterError('');
+        setSuccess('');
+        if (password.length < 6) {
+            setRegisterError('Password must be at least 6 characters');
+            return;
+        } else if (!/^(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{6,}$/.test(password)) {
+            setRegisterError('Password must be at least 6 characters long, with at least one capital letter and one special character.')
+            return;
+        }
+
+
+
+
+        signInUser(email, password)
             .then(result => {
                 console.log(result);
-                setUser(null);
+                setSuccess("Successfully logged in")
+                e.target.reset()
+                navigate(location?.state ? location.state : '/')
             })
             .catch(error => {
-                console.log(error);
+                console.error(error)
+                setRegisterError(error.message)
             })
     };
+
+    const handleGoogleLogin = () => {
+        signInWithGoogle()
+            .then(result => {
+                console.log(result);
+                setSuccess("Successfully logged in")
+                navigate(location?.state ? location.state : '/')
+            })
+            .catch(error => {
+                console.error(error)
+                setRegisterError(error.message)
+            })
+    }
+
     return (
-        <div>
-            <form className="space-y-4 mb-6 ">
+        <div className="h-screen">
+            <div>
+                <h1 className="text-5xl font-extrabold text-center mb-4 text-[#d82148]">Login</h1>
+            </div>
+            <hr className="border-[#245ae0] border-2 w-1/12 flex items-center mx-auto mb-5" />
+            <form onSubmit={handleLogin} className="space-y-4 mb-6 ">
                 <div className="text-center space-y-2">
                     <h3 className="font-bold">E-mail<span className="text-[#d82148]">*</span></h3>
-                    <input className="rounded-full border-2 py-3 px-6 w-1/3" type="email" name="email" id="" />
+                    <input className="rounded-full border-2 py-3 px-6 w-1/3" type="email" name="email" id="" placeholder="E-mail" required />
                 </div>
                 <div className="text-center space-y-2">
                     <h3 className="font-bold">Password<span className="text-[#d82148]">*</span></h3>
-                    <input className="rounded-full border-2 py-3 px-6 w-1/3" type="password" name="password" id="" />
+                    <div className="relative">
+                        <input className="rounded-full border-2 py-3 px-6 w-1/3" type={showPassword ? "text" : "password"} name="password" id="" placeholder="Password" required />
+                        <span className="absolute top-4 -ml-10" onClick={() => setShowPassword(!showPassword)}>
+                            {
+                                showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>
+                            }
+                        </span>
+                    </div>
                 </div>
+                <input className="flex items-center mx-auto bg-[#ffb531] font-bold rounded-full px-6 py-2  hover:text-white" type="submit" value="Login" />
             </form>
             <div className="space-y-4 mb-10">
-                <button className="flex items-center mx-auto bg-[#ffb531] font-bold rounded-full px-6 py-2  hover:text-white" type="submit">Login</button>
-                <button onClick={handleGoogleSignIn} className="btn btn-circle p-1 flex items-center mx-auto"><img src={'https://i.ibb.co/vVdgSTt/google-1.png'} alt="" /></button>
+                <button onClick={handleGoogleLogin} className="btn btn-circle p-1 flex items-center mx-auto"><img src={'https://i.ibb.co/vVdgSTt/google-1.png'} alt="" /></button>
+                <p className="text-center">Don't have an account? <Link className="text-[#d82148] hover:underline" to='/register'>Register</Link></p>
             </div>
+            {
+                registerError && <p className="text-red-700">{registerError}</p>
+            }
+            {
+                success && <p className="text-green-700">{success}</p>
+            }
         </div>
     );
 };
