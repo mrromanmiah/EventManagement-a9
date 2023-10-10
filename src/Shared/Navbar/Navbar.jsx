@@ -56,47 +56,51 @@ const Navbar = () => {
                             Contact
                         </NavLink>
                     </li>
-                   { user &&
-                    <>
-                     <li>
-                        <NavLink
-                            to="/blog"
-                            className={({ isActive, isPending }) =>
-                                isPending ? "pending" : isActive ? "text-[#d82148] bg-[#FFF2F8] py-2 px-3 rounded-xl font-bold text-lg" : ""
-                            }
-                        >
-                            Blogs
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink
-                            to="/gallery"
-                            className={({ isActive, isPending }) =>
-                                isPending ? "pending" : isActive ? "text-[#d82148] bg-[#FFF2F8] py-2 px-3 rounded-xl font-bold text-lg" : ""
-                            }
-                        >
-                            Gallery
-                        </NavLink>
-                    </li>
-                    </>
-                   }
+                    {user &&
+                        <>
+                            <li>
+                                <NavLink
+                                    to="/blog"
+                                    className={({ isActive, isPending }) =>
+                                        isPending ? "pending" : isActive ? "text-[#d82148] bg-[#FFF2F8] py-2 px-3 rounded-xl font-bold text-lg" : ""
+                                    }
+                                >
+                                    Blogs
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink
+                                    to="/gallery"
+                                    className={({ isActive, isPending }) =>
+                                        isPending ? "pending" : isActive ? "text-[#d82148] bg-[#FFF2F8] py-2 px-3 rounded-xl font-bold text-lg" : ""
+                                    }
+                                >
+                                    Gallery
+                                </NavLink>
+                            </li>
+                        </>
+                    }
                 </ul>
                 <div >
                     <div>
                         {
-                            user ? 
-                            <div className="lg:flex md:flex items-center gap-4">
-                                <div className="avatar">
-                        <div className="w-12 rounded-full bg-slate-500">
-                            <img src={user.photoURL} />
-                        </div>
-                    </div>
-                                <span className="mr-4 text-xs font-extrabold">{user.displayName}</span>
-                                <button onClick={handleSignOut} className="bg-[#01c897] text-white font-bold rounded-full px-6 py-2 hover:bg-[#31a588] ">Logout</button>
-                            </div>
-                            
+                            user ?
+                                <div className="flex items-center lg:gap-4">
+                                    <div className="avatar">
+                                        <div className="w-12 rounded-full bg-slate-500">
+                                            <img src={user.photoURL} />
+                                        </div>
+                                    </div>
+                                    <span className="mr-4 lg:ml-0 ml-4 text-xs font-extrabold">{user.displayName}</span>
+                                    <button onClick={handleSignOut} className="bg-[#01c897] text-white font-bold rounded-full px-6 py-2 hover:bg-[#31a588] ">Logout</button>
+                                </div>
+
                                 :
-                                <Link to='/login'><button className="bg-[#01c897] text-white font-bold rounded-full px-6 py-2 hover:bg-[#31a588] ">Login</button></Link>
+                                <div className="flex gap-4 justify-center">
+                                    <Link to='/login'><button className="bg-[#01c897] text-white font-bold rounded-full px-6 py-2 hover:bg-[#31a588] ">Login</button></Link>
+                                    <Link to='/register'><button className="bg-[#01c897] text-white font-bold rounded-full px-6 py-2 hover:bg-[#31a588] ">Register</button></Link>
+                                </div>
+
                         }
 
                     </div>

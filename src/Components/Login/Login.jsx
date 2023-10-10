@@ -88,7 +88,7 @@ const Login = () => {
     }
 
     return (
-        <div className="h-screen">
+        <div>
             <div>
                 <h1 className="text-5xl font-extrabold text-center mb-4 text-[#d82148]">Login</h1>
             </div>
