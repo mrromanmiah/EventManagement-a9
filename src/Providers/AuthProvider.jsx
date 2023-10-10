@@ -12,7 +12,6 @@ const AuthProvider = ({ children }) => {
         setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password)
         .then(result => {
-            // Update user information after successful registration
             const updatedUser = {
                 ...result.user,
                 displayName,

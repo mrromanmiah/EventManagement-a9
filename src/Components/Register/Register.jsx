@@ -5,13 +5,13 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
 
 const Register = () => {
-    const {createUser} = useContext(AuthContext)
+    const { createUser } = useContext(AuthContext)
     const navigate = useNavigate();
     const [registerError, setRegisterError] = useState('');
     const [success, setSuccess] = useState('');
     const [showPassword, setShowPassword] = useState(false)
     const handleRegister = e => {
-        e.preventDefault(); 
+        e.preventDefault();
         const form = new FormData(e.currentTarget);
         const displayName = form.get('displayName');
         const email = form.get('email');
@@ -25,8 +25,8 @@ const Register = () => {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Password must be at least 6 characters'          
-              })
+                text: 'Password must be at least 6 characters'
+            })
             return;
         } else if (!/^(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{6,}$/.test(password)) {
             setRegisterError('Password must be at least 6 characters long, with at least one capital letter and one special character.')
@@ -34,18 +34,18 @@ const Register = () => {
                 icon: 'error',
                 title: 'Oops...',
                 text: 'Password must be at least 6 characters long, with at least one capital letter and one special character.'
-              })
+            })
             return;
-        } else if (!termsAccepted){
-            setRegisterError('Please accept our terms and conditions') 
+        } else if (!termsAccepted) {
+            setRegisterError('Please accept our terms and conditions')
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
                 text: 'Please accept our terms and conditions'
-              }) 
+            })
             return;
         }
-        createUser(email, password,displayName, photoURL)
+        createUser(email, password, displayName, photoURL)
             .then(result => {
                 console.log(result.user);
                 setSuccess("Successfully registered")
@@ -53,7 +53,7 @@ const Register = () => {
                     'Good job!',
                     'Successfully registered',
                     'success'
-                  )
+                )
                 navigate('/')
             })
             .catch(error => {
@@ -62,8 +62,8 @@ const Register = () => {
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
-                    text: 'Your email have already an account'          
-                  })
+                    text: 'Your email have already an account'
+                })
             })
     }
     return (
@@ -75,25 +75,25 @@ const Register = () => {
             <form onSubmit={handleRegister} className="space-y-4 mb-10">
                 <div className="text-center space-y-2">
                     <h3 className="font-bold">Name<span className="text-[#d82148]">*</span></h3>
-                    <input className="rounded-full border-2 py-3 px-6 w-1/3" type="text" name="displayName" id="" placeholder="Your name"/>
+                    <input className="rounded-full border-2 py-3 px-6 lg:w-1/3" type="text" name="displayName" id="" placeholder="Your name" />
                 </div>
                 <div className="text-center space-y-2">
                     <h3 className="font-bold">E-mail<span className="text-[#d82148]">*</span></h3>
-                    <input className="rounded-full border-2 py-3 px-6 w-1/3" type="email" name="email" id="" placeholder="Your email" required />
+                    <input className="rounded-full border-2 py-3 px-6 lg:w-1/3" type="email" name="email" id="" placeholder="Your email" required />
                 </div>
                 <div className="text-center space-y-2">
                     <h3 className="font-bold">Photo URL</h3>
-                    <input className="rounded-full border-2 py-3 px-6 w-1/3" type="url" name="photoURL" id="" placeholder="Your photo URL" />
+                    <input className="rounded-full border-2 py-3 px-6 lg:w-1/3" type="url" name="photoURL" id="" placeholder="Your photo URL" />
                 </div>
                 <div className="text-center space-y-2">
                     <h3 className="font-bold">Password<span className="text-[#d82148]">*</span></h3>
                     <div className="relative">
-                        <input className="rounded-full border-2 py-3 px-6 w-1/3" type={showPassword ? "text" : "password"} name="password" id="" placeholder="Password" required />
-                    <span className="absolute top-4 -ml-10" onClick={() => setShowPassword(!showPassword)}>
-                        {
-                            showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>
-                        }
-                    </span>
+                        <input className="rounded-full border-2 py-3 px-6 lg:w-1/3" type={showPassword ? "text" : "password"} name="password" id="" placeholder="Password" required />
+                        <span className="absolute top-4 -ml-10" onClick={() => setShowPassword(!showPassword)}>
+                            {
+                                showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>
+                            }
+                        </span>
                     </div>
                 </div>
                 <div className="flex gap-2 items-center justify-center">

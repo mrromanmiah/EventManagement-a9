@@ -28,16 +28,16 @@ const Login = () => {
                 icon: 'error',
                 title: 'Oops...',
                 text: 'Password must be at least 6 characters'
-            
-              })
+
+            })
             return;
-        }  if (!/^(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{6,}$/.test(password)) {
+        } if (!/^(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{6,}$/.test(password)) {
             setRegisterError('Password must be at least 6 characters long, with at least one capital letter and one special character.')
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
                 text: 'Password must be at least 6 characters long, with at least one capital letter and one special character.'
-              })
+            })
             return;
         }
 
@@ -49,7 +49,7 @@ const Login = () => {
                     'Good job!',
                     'Successfully logged in',
                     'success'
-                  )
+                )
                 e.target.reset()
                 navigate(location?.state ? location.state : '/')
             })
@@ -60,7 +60,7 @@ const Login = () => {
                     icon: 'error',
                     title: 'Oops...',
                     text: 'You have entered wrong email or password'
-                  })
+                })
             })
     };
 
@@ -73,7 +73,7 @@ const Login = () => {
                     'Good job!',
                     'Successfully logged in',
                     'success'
-                  )
+                )
                 navigate(location?.state ? location.state : '/')
             })
             .catch(error => {
@@ -83,7 +83,7 @@ const Login = () => {
                     icon: 'error',
                     title: 'Oops...',
                     text: 'You have entered wrong credentials. Please try again'
-                  })
+                })
             })
     }
 
@@ -96,12 +96,12 @@ const Login = () => {
             <form onSubmit={handleLogin} className="space-y-4 mb-6 ">
                 <div className="text-center space-y-2">
                     <h3 className="font-bold">E-mail<span className="text-[#d82148]">*</span></h3>
-                    <input className="rounded-full border-2 py-3 px-6 w-1/3" type="email" name="email" id="" placeholder="E-mail" required />
+                    <input className="rounded-full border-2 py-3 px-6 lg:w-1/3" type="email" name="email" id="" placeholder="E-mail" required />
                 </div>
                 <div className="text-center space-y-2">
                     <h3 className="font-bold">Password<span className="text-[#d82148]">*</span></h3>
                     <div className="relative">
-                        <input className="rounded-full border-2 py-3 px-6 w-1/3" type={showPassword ? "text" : "password"} name="password" id="" placeholder="Password" required />
+                        <input className="rounded-full border-2 py-3 px-6 lg:w-1/3" type={showPassword ? "text" : "password"} name="password" id="" placeholder="Password" required />
                         <span className="absolute top-4 -ml-10" onClick={() => setShowPassword(!showPassword)}>
                             {
                                 showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>
@@ -115,8 +115,8 @@ const Login = () => {
                 <button onClick={handleGoogleLogin} className="btn btn-circle p-1 flex items-center mx-auto"><img src={'https://i.ibb.co/vVdgSTt/google-1.png'} alt="" /></button>
                 <p className="text-center">Don't have an account? <Link className="text-[#d82148] hover:underline" to='/register'>Register</Link></p>
             </div>
-            
-        
+
+
         </div>
     );
 };
