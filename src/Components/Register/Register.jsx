@@ -1,11 +1,8 @@
-
 import { Link, useNavigate } from "react-router-dom";
-
 import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { AuthContext } from "../../Providers/AuthProvider";
-
-
+import Swal from "sweetalert2";
 
 const Register = () => {
     const {createUser} = useContext(AuthContext)
@@ -16,7 +13,6 @@ const Register = () => {
     const handleRegister = e => {
         e.preventDefault(); 
         const form = new FormData(e.currentTarget);
-
         const displayName = form.get('displayName');
         const email = form.get('email');
         const photoURL = form.get('photoURL');
@@ -26,27 +22,49 @@ const Register = () => {
         setSuccess('');
         if (password.length < 6) {
             setRegisterError('Password must be at least 6 characters');
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Password must be at least 6 characters'          
+              })
             return;
         } else if (!/^(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{6,}$/.test(password)) {
             setRegisterError('Password must be at least 6 characters long, with at least one capital letter and one special character.')
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Password must be at least 6 characters long, with at least one capital letter and one special character.'
+              })
             return;
         } else if (!termsAccepted){
-            setRegisterError('Please accept our terms and conditions')  
+            setRegisterError('Please accept our terms and conditions') 
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Please accept our terms and conditions'
+              }) 
             return;
         }
-
-
-        createUser(email, password)
+        createUser(email, password,displayName, photoURL)
             .then(result => {
                 console.log(result.user);
                 setSuccess("Successfully registered")
+                Swal.fire(
+                    'Good job!',
+                    'Successfully registered',
+                    'success'
+                  )
                 navigate('/')
             })
             .catch(error => {
                 console.error(error);
                 setRegisterError(error.message);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Your email have already an account'          
+                  })
             })
-
     }
     return (
         <div>
@@ -85,14 +103,7 @@ const Register = () => {
                 <input className="flex items-center mx-auto bg-[#ffb531] font-bold rounded-full px-6 py-2  hover:text-white" type="submit" value="Register" />
             </form>
             <p className="text-center mb-20">Already have an account? <Link className="text-[#d82148] hover:underline" to='/login'>Login</Link></p>
-            {
-                registerError && <p className="text-red-700">{registerError}</p>
-            }
-            {
-                success && <p className="text-green-700">{success}</p>
-            }
         </div>
-
     );
 };
 

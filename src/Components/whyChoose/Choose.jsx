@@ -7,7 +7,7 @@ const Choose = () => {
                 <h1 className="text-3xl font-extrabold" data-aos="fade-up">Why <span className="text-[#d82148]">Choose</span> Us</h1>
                 <p className="w-1/2 text-gray-400 flex justify-center mx-auto" data-aos="zoom-in">Unmatched excellence and personalized service—choosing us ensures exceptional event success.</p>
             </div>
-            <div className="grid grid-cols-4 gap-12 mt-10">
+            <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-12 mt-10">
                 <div className="p-10 rounded-3xl shadow-xl space-y-4" data-aos="zoom-in"
                     data-aos-offset="300"
                     data-aos-easing="ease-in-sine">

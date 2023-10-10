@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 const Footer = () => {
@@ -8,10 +9,10 @@ const Footer = () => {
                 <img className="w-14" src={'https://i.ibb.co/MMr00zg/logo.png'} alt="" />
                 <h2 className="text-3xl font-extrabold text-[#ffb531]">Summit Sculpt</h2>
                 <nav className="grid grid-flow-col gap-4 text-white">
-                    <a className="link link-hover">About</a>
-                    <a className="link link-hover">Contact</a>
-                    <a className="link link-hover">Jobs</a>
-                    <a className="link link-hover">Press kit</a>
+                    <Link to='/about'><a className="link link-hover">About</a></Link>
+                    <Link to='/contact'><a className="link link-hover">Contact</a></Link>
+                    <Link to='/login'><a className="link link-hover">Login</a></Link>
+                    <Link to='/register'><a className="link link-hover">Register</a></Link>
                 </nav>
                 <nav>
                     <div className="grid grid-flow-col gap-4 text-white">

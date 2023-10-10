@@ -4,6 +4,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import { AuthContext } from "../../Providers/AuthProvider";
+import Swal from "sweetalert2";
 
 
 
@@ -23,25 +24,43 @@ const Login = () => {
         setSuccess('');
         if (password.length < 6) {
             setRegisterError('Password must be at least 6 characters');
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Password must be at least 6 characters'
+            
+              })
             return;
-        } else if (!/^(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{6,}$/.test(password)) {
+        }  if (!/^(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{6,}$/.test(password)) {
             setRegisterError('Password must be at least 6 characters long, with at least one capital letter and one special character.')
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Password must be at least 6 characters long, with at least one capital letter and one special character.'
+              })
             return;
         }
-
-
-
 
         signInUser(email, password)
             .then(result => {
                 console.log(result);
                 setSuccess("Successfully logged in")
+                Swal.fire(
+                    'Good job!',
+                    'Successfully logged in',
+                    'success'
+                  )
                 e.target.reset()
                 navigate(location?.state ? location.state : '/')
             })
             .catch(error => {
                 console.error(error)
                 setRegisterError(error.message)
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'You have entered wrong email or password'
+                  })
             })
     };
 
@@ -50,11 +69,21 @@ const Login = () => {
             .then(result => {
                 console.log(result);
                 setSuccess("Successfully logged in")
+                Swal.fire(
+                    'Good job!',
+                    'Successfully logged in',
+                    'success'
+                  )
                 navigate(location?.state ? location.state : '/')
             })
             .catch(error => {
                 console.error(error)
                 setRegisterError(error.message)
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'You have entered wrong credentials. Please try again'
+                  })
             })
     }
 
@@ -86,12 +115,8 @@ const Login = () => {
                 <button onClick={handleGoogleLogin} className="btn btn-circle p-1 flex items-center mx-auto"><img src={'https://i.ibb.co/vVdgSTt/google-1.png'} alt="" /></button>
                 <p className="text-center">Don't have an account? <Link className="text-[#d82148] hover:underline" to='/register'>Register</Link></p>
             </div>
-            {
-                registerError && <p className="text-red-700">{registerError}</p>
-            }
-            {
-                success && <p className="text-green-700">{success}</p>
-            }
+            
+        
         </div>
     );
 };

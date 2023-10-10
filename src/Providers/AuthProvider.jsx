@@ -8,9 +8,19 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    const createUser = (email, password) => {
+    const createUser = (email, password, displayName, photoURL) => {
         setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password)
+        .then(result => {
+            // Update user information after successful registration
+            const updatedUser = {
+                ...result.user,
+                displayName,
+                photoURL,
+            };
+            setUser(updatedUser);
+            return result;
+        });
     }
 
     const signInUser = (email, password) => {
