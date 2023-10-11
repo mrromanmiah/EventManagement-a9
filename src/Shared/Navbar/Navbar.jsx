@@ -21,16 +21,16 @@ const Navbar = () => {
         <div>
             <nav className="lg:flex space-y-4 lg:space-y-0 md:space-y-0 items-center justify-between py-6 px-16 text-center">
                 <div className="lg:flex items-center gap-4">
-                    <img className="flex items-center mx-auto w-12" src={'https://i.ibb.co/Xp1c26g/Asset-1.png'} alt="" />
-                    <h1 className="text-3xl lg:mb-0 md:mb-4 font-extrabold">Summit Sculpt</h1>
+                    <img className="flex items-center mx-auto w-8" src={'https://i.ibb.co/Xp1c26g/Asset-1.png'} alt="" />
+                    <h1 className="text-2xl lg:mb-0 md:mb-4 font-extrabold">Summit Sculpt</h1>
                 </div>
 
-                <ul className="lg:flex items-center gap-8 text-lg">
+                <ul className="lg:flex items-center gap-8 text-base font-semibold">
                     <li>
                         <NavLink
                             to="/"
                             className={({ isActive, isPending }) =>
-                                isPending ? "pending" : isActive ? "text-[#d82148] bg-[#FFF2F8] py-2 px-3 rounded-xl font-bold text-lg" : ""
+                                isPending ? "pending" : isActive ? "text-[#d82148] bg-[#FFF2F8] py-2 px-3 rounded-xl font-bold text-base" : ""
                             }
                         >
                             Home
@@ -40,7 +40,7 @@ const Navbar = () => {
                         <NavLink
                             to="/about"
                             className={({ isActive, isPending }) =>
-                                isPending ? "pending" : isActive ? "text-[#d82148] bg-[#FFF2F8] py-2 px-3 rounded-xl font-bold text-lg" : ""
+                                isPending ? "pending" : isActive ? "text-[#d82148] bg-[#FFF2F8] py-2 px-3 rounded-xl font-bold text-base" : ""
                             }
                         >
                             About
@@ -50,7 +50,7 @@ const Navbar = () => {
                         <NavLink
                             to="/contact"
                             className={({ isActive, isPending }) =>
-                                isPending ? "pending" : isActive ? "text-[#d82148] bg-[#FFF2F8] py-2 px-3 rounded-xl font-bold text-lg" : ""
+                                isPending ? "pending" : isActive ? "text-[#d82148] bg-[#FFF2F8] py-2 px-3 rounded-xl font-bold text-base" : ""
                             }
                         >
                             Contact
@@ -62,7 +62,7 @@ const Navbar = () => {
                                 <NavLink
                                     to="/blog"
                                     className={({ isActive, isPending }) =>
-                                        isPending ? "pending" : isActive ? "text-[#d82148] bg-[#FFF2F8] py-2 px-3 rounded-xl font-bold text-lg" : ""
+                                        isPending ? "pending" : isActive ? "text-[#d82148] bg-[#FFF2F8] py-2 px-3 rounded-xl font-bold text-base" : ""
                                     }
                                 >
                                     Blogs
@@ -72,7 +72,7 @@ const Navbar = () => {
                                 <NavLink
                                     to="/gallery"
                                     className={({ isActive, isPending }) =>
-                                        isPending ? "pending" : isActive ? "text-[#d82148] bg-[#FFF2F8] py-2 px-3 rounded-xl font-bold text-lg" : ""
+                                        isPending ? "pending" : isActive ? "text-[#d82148] bg-[#FFF2F8] py-2 px-3 rounded-xl font-bold text-base" : ""
                                     }
                                 >
                                     Gallery
