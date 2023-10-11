@@ -25,7 +25,7 @@ const Navbar = () => {
                     <h1 className="text-2xl lg:mb-0 md:mb-4 font-extrabold">Summit Sculpt</h1>
                 </div>
 
-                <ul className="lg:flex items-center gap-8 text-base font-semibold">
+                <ul className="lg:flex items-center gap-8 lg:space-y-0 md:space-y-3 space-y-3 text-base font-semibold">
                     <li>
                         <NavLink
                             to="/"

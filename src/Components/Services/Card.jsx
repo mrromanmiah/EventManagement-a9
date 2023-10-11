@@ -11,10 +11,10 @@ const Card = ({ card }) => {
                 </figure>
                 <div className="px-10 pb-10 pt-6 space-y-4 items-center text-center">
                     <h2 className="text-base font-bold">{service}</h2>
-                    <p className="h-16 text-xs text-gray-400 text-justify">{description.split(' ').slice(0, 25).join(' ')}...</p>
+                    <p className="lg:h-16 md:h-16 text-xs text-gray-400 text-justify">{description.split(' ').slice(0, 25).join(' ')}...</p>
                     <div>
                         <Link to={`/cards/${id}`}>
-                        <button className="bg-[#01c897] text-white text-sm font-bold rounded-full px-6 py-2 hover:bg-[#31a588] ">Read More</button>
+                        <button className="bg-[#01c897] text-white md:mt-4 lg:mt-0 mt-auto text-sm font-bold rounded-full px-6 py-2 hover:bg-[#31a588] ">Read More</button>
                         </Link>
                     </div>
                     <div className="flex justify-between text-gray-600 font-bold">
